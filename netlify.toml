@@ -3,3 +3,8 @@ directory = "netlify/functions"
 
 [build]
 publish = "."
+
+[[redirects]]
+from = "/api/colors"
+to = "/.netlify/functions/color"
+status = 200
