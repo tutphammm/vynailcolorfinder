@@ -1,925 +1,538 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>Color Library</title>
-
-
-<style>
-
-    * {
-        box-sizing: border-box;
-    }
-
-
-    :root {
-
-        --primary: #901616;
-
-        --primary-dark: #711111;
-
-        --background: #f5f6f8;
-
-        --card: #ffffff;
-
-        --text: #202124;
-
-        --muted: #6b7280;
-
-        --border: #e5e7eb;
-
-        --danger: #dc2626;
-
-        --shadow:
-            0 10px 30px rgba(0, 0, 0, 0.06);
-
-    }
-
-
-    body {
-
-        margin: 0;
-
-        font-family:
-            Inter,
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            sans-serif;
-
-        background: var(--background);
-
-        color: var(--text);
-
-    }
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-
-        background: var(--primary);
-
-        color: white;
-
-        padding: 22px 24px;
-
-    }
-
-
-    .header-inner {
-
-        max-width: 1100px;
-
-        margin: auto;
-
-    }
-
-
-    .logo {
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 12px;
-
-    }
-
-
-    .logo-icon {
-
-        width: 42px;
-
-        height: 42px;
-
-        border-radius: 12px;
-
-        background: white;
-
-        color: var(--primary);
-
-        display: grid;
-
-        place-items: center;
-
-        font-size: 21px;
-
-        font-weight: 800;
-
-    }
-
-
-    .logo h1 {
-
-        margin: 0;
-
-        font-size: 21px;
-
-    }
-
-
-    .logo p {
-
-        margin: 3px 0 0;
-
-        font-size: 13px;
-
-        opacity: .8;
-
-    }
-
-
-    /* =========================
-       MAIN
-    ========================= */
-
-    main {
-
-        max-width: 1100px;
-
-        margin: 35px auto;
-
-        padding:
-            0 20px 50px;
-
-    }
-
-
-    /* =========================
-       TOOLBAR
-    ========================= */
-
-    .toolbar {
-
-        display: flex;
-
-        gap: 14px;
-
-        margin-bottom: 30px;
-
-    }
-
-
-    .search-wrapper {
-
-        position: relative;
-
-        flex: 1;
-
-    }
-
-
-    .search-icon {
-
-        position: absolute;
-
-        left: 15px;
-
-        top: 50%;
-
-        transform:
-            translateY(-50%);
-
-        color: var(--muted);
-
-        font-size: 20px;
-
-    }
-
-
-    #search {
-
-        width: 100%;
-
-        height: 50px;
-
-        border:
-            1px solid var(--border);
-
-        border-radius: 12px;
-
-        padding:
-            0 15px 0 45px;
-
-        background: white;
-
-        font-size: 15px;
-
-        outline: none;
-
-        transition: .2s;
-
-    }
-
-
-    #search:focus {
-
-        border-color:
-            var(--primary);
-
-        box-shadow:
-            0 0 0 3px
-            rgba(144, 22, 22, .1);
-
-    }
-
-
-    button {
-
-        border: none;
-
-        cursor: pointer;
-
-        font: inherit;
-
-    }
-
-
-    .add-btn {
-
-        height: 50px;
-
-        padding:
-            0 20px;
-
-        border-radius: 12px;
-
-        background:
-            var(--primary);
-
-        color: white;
-
-        font-weight: 600;
-
-        transition: .2s;
-
-    }
-
-
-    .add-btn:hover {
-
-        background:
-            var(--primary-dark);
-
-        transform:
-            translateY(-1px);
-
-    }
-
-
-    /* =========================
-       SECTION HEADER
-    ========================= */
-
-    .section-header {
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        margin-bottom: 16px;
-
-    }
-
-
-    .section-header h2 {
-
-        margin: 0;
-
-        font-size: 19px;
-
-    }
-
-
-    .section-header span {
-
-        color: var(--muted);
-
-        font-size: 14px;
-
-    }
-
-
-    /* =========================
-       TABLE
-    ========================= */
-
-    .table-container {
-
-        background: white;
-
-        border:
-            1px solid var(--border);
-
-        border-radius: 16px;
-
-        overflow-x: auto;
-
-        box-shadow:
-            var(--shadow);
-
-    }
-
-
-    .color-table {
-
-        width: 100%;
-
-        min-width: 600px;
-
-        border-collapse: collapse;
-
-    }
-
-
-    .color-table th {
-
-        background: #f8f8f9;
-
-        color: #4b5563;
-
-        font-size: 12px;
-
-        font-weight: 700;
-
-        text-transform: uppercase;
-
-        letter-spacing: .04em;
-
-        text-align: left;
-
-        padding: 15px 18px;
-
-        border-bottom:
-            1px solid var(--border);
-
-    }
-
-
-    .color-table td {
-
-        padding: 15px 18px;
-
-        border-bottom:
-            1px solid var(--border);
-
-        font-size: 14px;
-
-        vertical-align: middle;
-
-    }
-
-
-    .color-table tbody tr:last-child td {
-
-        border-bottom: none;
-
-    }
-
-
-    .color-table tbody tr {
-
-        transition: .15s;
-
-    }
-
-
-    .color-table tbody tr:hover {
-
-        background: #fafafa;
-
-    }
-
-
-    .table-number {
-
-        color: var(--muted);
-
-        width: 65px;
-
-    }
-
-
-    .table-name {
-
-        font-weight: 600;
-
-    }
-
-
-    .table-code {
-
-        font-family: monospace;
-
-        font-size: 14px;
-
-    }
-
-
-    .table-actions {
-
-        display: flex;
-
-        gap: 8px;
-
-    }
-
-
-    .table-btn {
-
-        padding:
-            7px 12px;
-
-        border-radius: 7px;
-
-        background: #f3f4f6;
-
-        font-size: 12px;
-
-        font-weight: 600;
-
-        transition: .15s;
-
-    }
-
-
-    .table-btn:hover {
-
-        background: #e5e7eb;
-
-    }
-
-
-    .table-btn.edit {
-
-        color: var(--primary);
-
-    }
-
-
-    .table-btn.delete {
-
-        color: var(--danger);
-
-    }
-
-
-    /* =========================
-       EMPTY STATE
-    ========================= */
-
-    .empty {
-
-        text-align: center;
-
-        padding: 60px 20px;
-
-        color: var(--muted);
-
-    }
-
-
-    .empty-icon {
-
-        font-size: 40px;
-
-        margin-bottom: 10px;
-
-    }
-
-
-    .empty h3 {
-
-        margin:
-            0 0 5px;
-
-        color: var(--text);
-
-    }
-
-
-    .empty p {
-
-        margin: 0;
-
-    }
-
-
-    /* =========================
-       MODAL
-    ========================= */
-
-    .modal-overlay {
-
-        position: fixed;
-
-        inset: 0;
-
-        background:
-            rgba(0, 0, 0, .5);
-
-        display: none;
-
-        align-items: center;
-
-        justify-content: center;
-
-        padding: 20px;
-
-        z-index: 100;
-
-    }
-
-
-    .modal-overlay.active {
-
-        display: flex;
-
-    }
-
-
-    .modal {
-
-        width: 100%;
-
-        max-width: 450px;
-
-        background: white;
-
-        border-radius: 18px;
-
-        padding: 25px;
-
-        box-shadow:
-            0 25px 60px
-            rgba(0, 0, 0, .2);
-
-    }
-
-
-    .modal-header {
-
-        display: flex;
-
-        justify-content:
-            space-between;
-
-        align-items: center;
-
-        margin-bottom: 22px;
-
-    }
-
-
-    .modal-header h2 {
-
-        margin: 0;
-
-        font-size: 20px;
-
-    }
-
-
-    .close-btn {
-
-        width: 32px;
-
-        height: 32px;
-
-        border-radius: 8px;
-
-        background: #f3f4f6;
-
-        font-size: 18px;
-
-    }
-
-
-    .form-group {
-
-        margin-bottom: 17px;
-
-    }
-
-
-    .form-group label {
-
-        display: block;
-
-        font-size: 13px;
-
-        font-weight: 600;
-
-        margin-bottom: 7px;
-
-    }
-
-
-    .form-group input {
-
-        width: 100%;
-
-        height: 45px;
-
-        border:
-            1px solid var(--border);
-
-        border-radius: 9px;
-
-        padding:
-            0 12px;
-
-        font-size: 14px;
-
-        outline: none;
-
-    }
-
-
-    .form-group input:focus {
-
-        border-color:
-            var(--primary);
-
-        box-shadow:
-            0 0 0 3px
-            rgba(144, 22, 22, .08);
-
-    }
-
-
-    .modal-actions {
-
-        display: flex;
-
-        gap: 10px;
-
-        margin-top: 22px;
-
-    }
-
-
-    .modal-actions button {
-
-        flex: 1;
-
-        height: 45px;
-
-        border-radius: 9px;
-
-        font-weight: 600;
-
-    }
-
-
-    .cancel-btn {
-
-        background: #f3f4f6;
-
-    }
-
-
-    .save-btn {
-
-        background:
-            var(--primary);
-
-        color: white;
-
-    }
-
-
-    .save-btn:hover {
-
-        background:
-            var(--primary-dark);
-
-    }
-
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 600px) {
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Color Library</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: #f5f6f8;
+            color: #1f2937;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
-
-            padding: 18px;
-
+            background: #901616;
+            color: white;
+            padding: 18px 24px;
         }
 
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
 
-        .logo h1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-            font-size: 18px;
-
+            gap: 20px;
         }
 
+        .brand {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .brand-subtitle {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
 
         main {
-
-            margin-top: 22px;
-
-            padding:
-                0 14px 35px;
-
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-
 
         .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            flex-direction: column;
-
+            gap: 16px;
+            margin-bottom: 20px;
         }
 
+        .search-box {
+            flex: 1;
+            position: relative;
+        }
 
-        .add-btn {
-
+        .search-box input {
             width: 100%;
 
+            padding: 13px 16px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+
+            background: white;
+
+            font-size: 15px;
+
+            outline: none;
         }
 
-
-        .section-header h2 {
-
-            font-size: 17px;
-
+        .search-box input:focus {
+            border-color: #901616;
+            box-shadow:
+                0 0 0 3px rgba(144, 22, 22, 0.1);
         }
 
+        .add-button {
+            border: none;
+            border-radius: 9px;
 
-        .table-container {
+            padding: 13px 20px;
 
+            background: #901616;
+            color: white;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.15s;
+        }
+
+        .add-button:hover {
+            background: #741212;
+        }
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-card {
+            background: white;
+
+            border: 1px solid #e5e7eb;
             border-radius: 12px;
 
+            overflow: hidden;
         }
 
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-        .color-table th,
-        .color-table td {
+            padding: 18px 20px;
 
-            padding:
-                13px 14px;
-
+            border-bottom: 1px solid #e5e7eb;
         }
 
+        .table-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .result-count {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        th {
+            text-align: left;
+
+            padding: 13px 20px;
+
+            background: #f9fafb;
+
+            color: #6b7280;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        td {
+            padding: 16px 20px;
+
+            border-top: 1px solid #f0f0f0;
+
+            font-size: 14px;
+        }
+
+        tbody tr:hover {
+            background: #fafafa;
+        }
+
+        .table-number {
+            width: 70px;
+            color: #9ca3af;
+        }
+
+        .table-name {
+            font-weight: 600;
+        }
+
+        .table-code {
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                "Liberation Mono",
+                monospace;
+
+            font-size: 13px;
+            color: #4b5563;
+        }
 
         .table-actions {
-
-            gap: 5px;
-
+            display: flex;
+            gap: 8px;
         }
-
 
         .table-btn {
+            border: 1px solid #d1d5db;
 
-            padding:
-                7px 10px;
+            background: white;
 
+            padding: 7px 12px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            cursor: pointer;
         }
 
-    }
+        .table-btn.edit:hover {
+            background: #f3f4f6;
+        }
 
-</style>
+        .table-btn.delete {
+            color: #b91c1c;
+            border-color: #fecaca;
+        }
 
+        .table-btn.delete:hover {
+            background: #fef2f2;
+        }
+
+        .empty {
+            text-align: center;
+
+            padding: 50px 20px;
+
+            color: #9ca3af;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.45);
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            width: 100%;
+            max-width: 480px;
+
+            background: white;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.2);
+
+            overflow: hidden;
+        }
+
+        .modal-header {
+            padding: 20px 22px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            margin: 0;
+
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .close-button {
+            border: none;
+            background: transparent;
+
+            font-size: 24px;
+
+            color: #6b7280;
+
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            color: #374151;
+        }
+
+        input[type="text"] {
+            width: 100%;
+
+            padding: 12px 13px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #901616;
+
+            box-shadow:
+                0 0 0 3px rgba(144, 22, 22, 0.1);
+        }
+
+        .modal-footer {
+            padding: 16px 22px;
+
+            border-top: 1px solid #e5e7eb;
+
+            display: flex;
+            justify-content: flex-end;
+
+            gap: 10px;
+        }
+
+        .cancel-button {
+            border: 1px solid #d1d5db;
+
+            background: white;
+
+            padding: 10px 17px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        .save-button {
+            border: none;
+
+            background: #901616;
+            color: white;
+
+            padding: 10px 19px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+        }
+
+        .save-button:hover {
+            background: #741212;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+            header {
+                padding: 16px;
+            }
+
+            .header-inner {
+                align-items: flex-start;
+            }
+
+            .brand {
+                font-size: 19px;
+            }
+
+            main {
+                margin: 25px auto;
+                padding: 0 12px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .add-button {
+                width: 100%;
+            }
+
+            .table-header {
+                padding: 15px;
+            }
+
+            th,
+            td {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="header-inner">
-
-    <div class="logo">
-
-        <div class="logo-icon">
-            V
-        </div>
-
+    <div class="header-inner">
         <div>
+            <div class="brand">
+                Color Library
+            </div>
 
-            <h1>
-                Vy nails Color Finder
-            </h1>
-
-            <p>
-                Search and manage your colors
-            </p>
-
+            <div class="brand-subtitle">
+                Color name & custom code management
+            </div>
         </div>
-
     </div>
-
-</div>
-
 </header>
 
 <main>
 
+    <div class="toolbar">
 
-<div class="toolbar">
-
-    <div class="search-wrapper">
-
-        <span class="search-icon">
-            ⌕
-        </span>
-
-        <input
-            id="search"
-            type="search"
-            placeholder="Search color name..."
-            autocomplete="off"
-        >
-
-    </div>
-
-
-    <button
-        class="add-btn"
-        onclick="openAddModal()"
-    >
-        + Add Color
-    </button>
-
-</div>
-
-
-<!-- TABLE -->
-
-<section>
-
-    <div class="section-header">
-
-        <h2>
-            Color Management
-        </h2>
-
-        <span id="resultCount">
-            0 colors
-        </span>
-
-    </div>
-
-
-    <div class="table-container">
-
-        <table class="color-table">
-
-            <thead>
-
-                <tr>
-
-                    <th>
-                        #
-                    </th>
-
-                    <th>
-                        Color Name
-                    </th>
-
-                    <th>
-                        Color Code
-                    </th>
-
-                    <th>
-                        Actions
-                    </th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody
-                id="colorTableBody"
+        <div class="search-box">
+            <input
+                id="search"
+                type="text"
+                placeholder="Search color name..."
+                autocomplete="off"
             >
-            </tbody>
+        </div>
 
-        </table>
+        <button
+            class="add-button"
+            onclick="openAddModal()"
+        >
+            + Add Color
+        </button>
 
     </div>
 
-</section>
+    <div class="table-card">
+
+        <div class="table-header">
+
+            <div class="table-title">
+                Colors
+            </div>
+
+            <div
+                id="resultCount"
+                class="result-count"
+            >
+                0 colors
+            </div>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Color Name</th>
+                        <th>Color Code</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="colorTableBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
 
 </main>
 
 <!-- =========================
-     ADD / EDIT MODAL
+     MODAL
 ========================= -->
 
 <div
@@ -927,205 +540,120 @@
     class="modal-overlay"
 >
 
-<div class="modal">
+    <div class="modal">
 
+        <div class="modal-header">
 
-    <div class="modal-header">
+            <h2
+                id="modalTitle"
+                class="modal-title"
+            >
+                Add Color
+            </h2>
 
-        <h2 id="modalTitle">
-            Add Color
-        </h2>
+            <button
+                class="close-button"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
 
+        </div>
 
-        <button
-            class="close-btn"
-            onclick="closeModal()"
-        >
-            ×
-        </button>
+        <div class="modal-body">
+
+            <div class="form-group">
+
+                <label for="nameInput">
+                    Color Name
+                </label>
+
+                <input
+                    id="nameInput"
+                    type="text"
+                    placeholder="e.g. Ocean Blue"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="codeInput">
+                    Color Code
+                </label>
+
+                <input
+                    id="codeInput"
+                    type="text"
+                    placeholder="e.g. OB-001"
+                >
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+                class="cancel-button"
+                onclick="closeModal()"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="save-button"
+                onclick="saveColor()"
+            >
+                Save
+            </button>
+
+        </div>
 
     </div>
-
-
-    <div class="form-group">
-
-        <label for="nameInput">
-            Color Name
-        </label>
-
-
-        <input
-            id="nameInput"
-            type="text"
-            placeholder="e.g. Midnight Blue"
-            autocomplete="off"
-        >
-
-    </div>
-
-
-    <div class="form-group">
-
-        <label for="codeInput">
-            Color Code
-        </label>
-
-
-        <input
-            id="codeInput"
-            type="text"
-            placeholder="e.g. MB-001"
-            autocomplete="off"
-        >
-
-    </div>
-
-
-    <div class="modal-actions">
-
-        <button
-            class="cancel-btn"
-            onclick="closeModal()"
-        >
-            Cancel
-        </button>
-
-
-        <button
-            class="save-btn"
-            onclick="saveColor()"
-        >
-            Save Color
-        </button>
-
-    </div>
-
-</div>
-```
 
 </div>
 
 <script>
 
-
-/* =========================
-   CONFIG
-========================= */
-
-const STORAGE_KEY =
-    "color-library-data";
-
-
-/* =========================
-   STATE
-========================= */
-
 let colors = [];
-
 let editingId = null;
 
 
 /* =========================
-   LOAD DATA
+   LOAD COLORS
 ========================= */
 
 async function loadColors() {
 
-
-    /*
-     * First try localStorage.
-     *
-     * This allows Add/Edit/Delete
-     * changes to remain after reload.
-     */
-
-    const saved =
-        localStorage.getItem(
-            STORAGE_KEY
-        );
-
-
-    if (saved) {
-
-        try {
-
-            colors =
-                JSON.parse(saved);
-
-            render();
-
-            return;
-
-        } catch (error) {
-
-            console.error(
-                "Invalid localStorage data:",
-                error
-            );
-
-        }
-
-    }
-
-
-    /*
-     * If there is no localStorage data,
-     * load the initial data from colors.json.
-     */
-
     try {
 
         const response =
-            await fetch(
-                "colors.json"
-            );
+            await fetch("/api/colors");
 
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Could not load colors.json"
-            );
-
-        }
-
-
-        colors =
+        const result =
             await response.json();
 
+        if (!response.ok) {
+            throw new Error(
+                result.error ||
+                "Could not load colors."
+            );
+        }
 
-        saveToLocalStorage();
+        colors = result;
 
         render();
-
 
     } catch (error) {
 
         console.error(error);
 
-        colors = [];
-
-        render();
-
+        alert(
+            "Could not load colors: " +
+            error.message
+        );
     }
-
-}
-
-
-/* =========================
-   LOCAL STORAGE
-========================= */
-
-function saveToLocalStorage() {
-
-    localStorage.setItem(
-
-        STORAGE_KEY,
-
-        JSON.stringify(colors)
-
-    );
-
 }
 
 
@@ -1135,34 +663,18 @@ function saveToLocalStorage() {
 
 function getFilteredColors() {
 
-
     const search =
-
         document
             .getElementById("search")
             .value
             .trim()
             .toLowerCase();
 
-
-    /*
-     * Full text search:
-     *
-     * "blue"
-     * will match:
-     *
-     * Midnight Blue
-     * Ocean Blue
-     * Blue Gray
-     */
-
-    return colors.filter(
-        color =>
-            color.name
-                .toLowerCase()
-                .includes(search)
+    return colors.filter(color =>
+        String(color.name)
+            .toLowerCase()
+            .includes(search)
     );
-
 }
 
 
@@ -1172,305 +684,183 @@ function getFilteredColors() {
 
 function render() {
 
-
     const filtered =
         getFilteredColors();
 
+    const tbody =
+        document.getElementById(
+            "colorTableBody"
+        );
 
-    renderTable(
-        filtered
-    );
-
-
-    document
-        .getElementById(
+    const resultCount =
+        document.getElementById(
             "resultCount"
-        )
-        .textContent =
+        );
 
+    resultCount.textContent =
         `${filtered.length} ${
             filtered.length === 1
                 ? "color"
                 : "colors"
         }`;
 
-}
-
-
-/* =========================
-   RENDER TABLE
-========================= */
-
-function renderTable(
-    data
-) {
-
-
-    const tbody =
-
-        document
-            .getElementById(
-                "colorTableBody"
-            );
-
-
-    if (data.length === 0) {
+    if (filtered.length === 0) {
 
         tbody.innerHTML = `
-
             <tr>
-
                 <td
                     colspan="4"
                     class="empty"
                 >
-
-                    <div class="empty-icon">
-                        🎨
-                    </div>
-
-                    <h3>
-                        No colors found
-                    </h3>
-
-                    <p>
-                        Try another search
-                        or add a new color.
-                    </p>
-
+                    No colors found.
                 </td>
-
             </tr>
-
         `;
 
         return;
-
     }
 
-
     tbody.innerHTML =
+        filtered.map(
+            (color, index) => `
+                <tr>
 
-        data
-            .map(
-                (color, index) => `
+                    <td class="table-number">
+                        ${index + 1}
+                    </td>
 
-                    <tr>
+                    <td class="table-name">
+                        ${escapeHtml(color.name)}
+                    </td>
 
-                        <td class="table-number">
-                            ${index + 1}
-                        </td>
+                    <td class="table-code">
+                        ${escapeHtml(color.code)}
+                    </td>
 
+                    <td>
 
-                        <td class="table-name">
-                            ${escapeHtml(
-                                color.name
-                            )}
-                        </td>
+                        <div class="table-actions">
 
-
-                        <td class="table-code">
-                            ${escapeHtml(
-                                color.code
-                            )}
-                        </td>
-
-
-                        <td>
-
-                            <div
-                                class="table-actions"
+                            <button
+                                class="table-btn edit"
+                                onclick="editColor(${color.id})"
                             >
+                                Edit
+                            </button>
 
-                                <button
-                                    class="
-                                        table-btn
-                                        edit
-                                    "
-                                    onclick="
-                                        editColor(
-                                            ${color.id}
-                                        )
-                                    "
-                                >
-                                    Edit
-                                </button>
+                            <button
+                                class="table-btn delete"
+                                onclick="deleteColor(${color.id})"
+                            >
+                                Delete
+                            </button>
 
+                        </div>
 
-                                <button
-                                    class="
-                                        table-btn
-                                        delete
-                                    "
-                                    onclick="
-                                        deleteColor(
-                                            ${color.id}
-                                        )
-                                    "
-                                >
-                                    Delete
-                                </button>
+                    </td>
 
-                            </div>
-
-                        </td>
-
-                    </tr>
-
-                `
-            )
-            .join("");
-
+                </tr>
+            `
+        ).join("");
 }
 
 
 /* =========================
-   OPEN ADD MODAL
+   SEARCH EVENT
+========================= */
+
+document
+    .getElementById("search")
+    .addEventListener(
+        "input",
+        render
+    );
+
+
+/* =========================
+   ADD MODAL
 ========================= */
 
 function openAddModal() {
 
-
     editingId = null;
 
+    document.getElementById(
+        "modalTitle"
+    ).textContent = "Add Color";
+
+    document.getElementById(
+        "nameInput"
+    ).value = "";
+
+    document.getElementById(
+        "codeInput"
+    ).value = "";
 
     document
-        .getElementById(
-            "modalTitle"
-        )
-        .textContent =
-            "Add Color";
-
+        .getElementById("modalOverlay")
+        .classList.add("active");
 
     document
-        .getElementById(
-            "nameInput"
-        )
-        .value = "";
-
-
-    document
-        .getElementById(
-            "codeInput"
-        )
-        .value = "";
-
-
-    document
-        .getElementById(
-            "modalOverlay"
-        )
-        .classList
-        .add("active");
-
-
-    setTimeout(
-        () => {
-
-            document
-                .getElementById(
-                    "nameInput"
-                )
-                .focus();
-
-        },
-        100
-    );
-
+        .getElementById("nameInput")
+        .focus();
 }
 
 
 /* =========================
-   EDIT COLOR
+   EDIT
 ========================= */
 
-function editColor(
-    id
-) {
-
+function editColor(id) {
 
     const color =
-
         colors.find(
-            c =>
-                c.id === id
+            item =>
+                Number(item.id) ===
+                Number(id)
         );
 
-
     if (!color) {
-
         return;
-
     }
 
+    editingId = Number(id);
 
-    editingId = id;
+    document.getElementById(
+        "modalTitle"
+    ).textContent = "Edit Color";
 
+    document.getElementById(
+        "nameInput"
+    ).value = color.name;
 
-    document
-        .getElementById(
-            "modalTitle"
-        )
-        .textContent =
-            "Edit Color";
-
-
-    document
-        .getElementById(
-            "nameInput"
-        )
-        .value =
-            color.name;
-
+    document.getElementById(
+        "codeInput"
+    ).value = color.code;
 
     document
-        .getElementById(
-            "codeInput"
-        )
-        .value =
-            color.code;
-
-
-    document
-        .getElementById(
-            "modalOverlay"
-        )
-        .classList
-        .add("active");
-
+        .getElementById("modalOverlay")
+        .classList.add("active");
 }
 
 
 /* =========================
-   SAVE COLOR
+   SAVE
 ========================= */
 
-function saveColor() {
-
+async function saveColor() {
 
     const name =
-
         document
-            .getElementById(
-                "nameInput"
-            )
+            .getElementById("nameInput")
             .value
             .trim();
-
 
     const code =
-
         document
-            .getElementById(
-                "codeInput"
-            )
+            .getElementById("codeInput")
             .value
             .trim();
-
-
-    /*
-     * Validate name
-     */
 
     if (!name) {
 
@@ -1479,13 +869,7 @@ function saveColor() {
         );
 
         return;
-
     }
-
-
-    /*
-     * Validate code
-     */
 
     if (!code) {
 
@@ -1494,138 +878,122 @@ function saveColor() {
         );
 
         return;
-
     }
 
+    try {
 
-    /*
-     * EDIT EXISTING COLOR
-     */
+        const method =
+            editingId === null
+                ? "POST"
+                : "PUT";
 
-    if (editingId !== null) {
+        const body =
+            editingId === null
+                ? {
+                    name,
+                    code
+                }
+                : {
+                    id: editingId,
+                    name,
+                    code
+                };
 
+        const response =
+            await fetch(
+                "/api/colors",
+                {
+                    method,
 
-        const index =
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
-            colors.findIndex(
-                c =>
-                    c.id ===
-                    editingId
+                    body:
+                        JSON.stringify(body)
+                }
             );
 
+        const result =
+            await response.json();
 
-        if (index !== -1) {
+        if (!response.ok) {
 
-
-            colors[index] = {
-
-                ...colors[index],
-
-                name: name,
-
-                code: code
-
-            };
-
+            throw new Error(
+                result.error ||
+                "Could not save color."
+            );
         }
 
+        closeModal();
+
+        await loadColors();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(error.message);
     }
-
-
-    /*
-     * ADD NEW COLOR
-     */
-
-    else {
-
-
-        colors.push({
-
-            id: Date.now(),
-
-            name: name,
-
-            code: code
-
-        });
-
-    }
-
-
-    /*
-     * Save
-     */
-
-    saveToLocalStorage();
-
-
-    /*
-     * Update table
-     */
-
-    render();
-
-
-    /*
-     * Close modal
-     */
-
-    closeModal();
-
 }
 
 
 /* =========================
-   DELETE COLOR
+   DELETE
 ========================= */
 
-function deleteColor(
-    id
-) {
-
+async function deleteColor(id) {
 
     const color =
-
         colors.find(
-            c =>
-                c.id === id
+            item =>
+                Number(item.id) ===
+                Number(id)
         );
 
-
     if (!color) {
-
         return;
-
     }
 
-
     const confirmed =
-
         confirm(
             `Delete "${color.name}"?`
         );
 
-
     if (!confirmed) {
-
         return;
-
     }
 
+    try {
 
-    colors =
+        const response =
+            await fetch(
+                `/api/colors?id=${id}`,
+                {
+                    method: "DELETE"
+                }
+            );
 
-        colors.filter(
-            c =>
-                c.id !== id
-        );
+        const result =
+            await response.json();
 
+        if (!response.ok) {
 
-    saveToLocalStorage();
+            throw new Error(
+                result.error ||
+                "Could not delete color."
+            );
+        }
 
+        await loadColors();
 
-    render();
+    } catch (error) {
 
+        console.error(error);
+
+        alert(error.message);
+    }
 }
 
 
@@ -1635,21 +1003,18 @@ function deleteColor(
 
 function closeModal() {
 
-
     document
-        .getElementById(
-            "modalOverlay"
-        )
-        .classList
-        .remove("active");
-
+        .getElementById("modalOverlay")
+        .classList.remove("active");
 }
 
 
+/* =========================
+   CLICK OUTSIDE MODAL
+========================= */
+
 document
-    .getElementById(
-        "modalOverlay"
-    )
+    .getElementById("modalOverlay")
     .addEventListener(
         "click",
         event => {
@@ -1658,45 +1023,23 @@ document
                 event.target.id ===
                 "modalOverlay"
             ) {
-
                 closeModal();
-
             }
-
         }
     );
 
 
 /* =========================
-   SEARCH EVENT
-========================= */
-
-document
-    .getElementById(
-        "search"
-    )
-    .addEventListener(
-        "input",
-        render
-    );
-
-
-/* =========================
-   ESC KEY
+   ESCAPE
 ========================= */
 
 document.addEventListener(
     "keydown",
     event => {
 
-        if (
-            event.key === "Escape"
-        ) {
-
+        if (event.key === "Escape") {
             closeModal();
-
         }
-
     }
 );
 
@@ -1705,42 +1048,22 @@ document.addEventListener(
    HTML ESCAPE
 ========================= */
 
-function escapeHtml(
-    value
-) {
+function escapeHtml(value) {
 
     return String(value)
-
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
         .replaceAll(
             "'",
             "&#039;"
         );
-
 }
 
 
 /* =========================
-   START APPLICATION
+   INITIAL LOAD
 ========================= */
 
 loadColors();
@@ -1748,5 +1071,4 @@ loadColors();
 </script>
 
 </body>
-
 </html>
