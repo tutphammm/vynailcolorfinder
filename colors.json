@@ -28,5 +28,10 @@
     "id": 6,
     "name": "Hollywood & Vibe",
     "code": "151"
+  },
+  {
+    "id": 7,
+    "name": "Switch To Portrait Mode",
+    "code": "150"
   }
 ]
