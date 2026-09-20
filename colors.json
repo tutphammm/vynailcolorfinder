@@ -33,5 +33,10 @@
     "id": 7,
     "name": "Switch To Portrait Mode",
     "code": "150"
+  },
+  {
+    "id": 8,
+    "name": "Quest For Quartz",
+    "code": "153"
   }
 ]
