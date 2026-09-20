@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Color Library</title>
+
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    :root {
+
+        --primary: #901616;
+
+        --primary-dark: #711111;
+
+        --background: #f5f6f8;
+
+        --card: #ffffff;
+
+        --text: #202124;
+
+        --muted: #6b7280;
+
+        --border: #e5e7eb;
+
+        --danger: #dc2626;
+
+        --shadow:
+            0 10px 30px rgba(0, 0, 0, 0.06);
+
+    }
+
+
+    body {
+
+        margin: 0;
+
+        font-family:
+            Inter,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        background: var(--background);
+
+        color: var(--text);
+
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+
+        background: var(--primary);
+
+        color: white;
+
+        padding: 22px 24px;
+
+    }
+
+
+    .header-inner {
+
+        max-width: 1100px;
+
+        margin: auto;
+
+    }
+
+
+    .logo {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+    }
+
+
+    .logo-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 12px;
+
+        background: white;
+
+        color: var(--primary);
+
+        display: grid;
+
+        place-items: center;
+
+        font-size: 21px;
+
+        font-weight: 800;
+
+    }
+
+
+    .logo h1 {
+
+        margin: 0;
+
+        font-size: 21px;
+
+    }
+
+
+    .logo p {
+
+        margin: 3px 0 0;
+
+        font-size: 13px;
+
+        opacity: .8;
+
+    }
+
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+
+        max-width: 1100px;
+
+        margin: 35px auto;
+
+        padding:
+            0 20px 50px;
+
+    }
+
+
+    /* =========================
+       TOOLBAR
+    ========================= */
+
+    .toolbar {
+
+        display: flex;
+
+        gap: 14px;
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .search-wrapper {
+
+        position: relative;
+
+        flex: 1;
+
+    }
+
+
+    .search-icon {
+
+        position: absolute;
+
+        left: 15px;
+
+        top: 50%;
+
+        transform:
+            translateY(-50%);
+
+        color: var(--muted);
+
+        font-size: 20px;
+
+    }
+
+
+    #search {
+
+        width: 100%;
+
+        height: 50px;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 12px;
+
+        padding:
+            0 15px 0 45px;
+
+        background: white;
+
+        font-size: 15px;
+
+        outline: none;
+
+        transition: .2s;
+
+    }
+
+
+    #search:focus {
+
+        border-color:
+            var(--primary);
+
+        box-shadow:
+            0 0 0 3px
+            rgba(144, 22, 22, .1);
+
+    }
+
+
+    button {
+
+        border: none;
+
+        cursor: pointer;
+
+        font: inherit;
+
+    }
+
+
+    .add-btn {
+
+        height: 50px;
+
+        padding:
+            0 20px;
+
+        border-radius: 12px;
+
+        background:
+            var(--primary);
+
+        color: white;
+
+        font-weight: 600;
+
+        transition: .2s;
+
+    }
+
+
+    .add-btn:hover {
+
+        background:
+            var(--primary-dark);
+
+        transform:
+            translateY(-1px);
+
+    }
+
+
+    /* =========================
+       SECTION HEADER
+    ========================= */
+
+    .section-header {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        margin-bottom: 16px;
+
+    }
+
+
+    .section-header h2 {
+
+        margin: 0;
+
+        font-size: 19px;
+
+    }
+
+
+    .section-header span {
+
+        color: var(--muted);
+
+        font-size: 14px;
+
+    }
+
+
+    /* =========================
+       TABLE
+    ========================= */
+
+    .table-container {
+
+        background: white;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 16px;
+
+        overflow-x: auto;
+
+        box-shadow:
+            var(--shadow);
+
+    }
+
+
+    .color-table {
+
+        width: 100%;
+
+        min-width: 600px;
+
+        border-collapse: collapse;
+
+    }
+
+
+    .color-table th {
+
+        background: #f8f8f9;
+
+        color: #4b5563;
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: .04em;
+
+        text-align: left;
+
+        padding: 15px 18px;
+
+        border-bottom:
+            1px solid var(--border);
+
+    }
+
+
+    .color-table td {
+
+        padding: 15px 18px;
+
+        border-bottom:
+            1px solid var(--border);
+
+        font-size: 14px;
+
+        vertical-align: middle;
+
+    }
+
+
+    .color-table tbody tr:last-child td {
+
+        border-bottom: none;
+
+    }
+
+
+    .color-table tbody tr {
+
+        transition: .15s;
+
+    }
+
+
+    .color-table tbody tr:hover {
+
+        background: #fafafa;
+
+    }
+
+
+    .table-number {
+
+        color: var(--muted);
+
+        width: 65px;
+
+    }
+
+
+    .table-name {
+
+        font-weight: 600;
+
+    }
+
+
+    .table-code {
+
+        font-family: monospace;
+
+        font-size: 14px;
+
+    }
+
+
+    .table-actions {
+
+        display: flex;
+
+        gap: 8px;
+
+    }
+
+
+    .table-btn {
+
+        padding:
+            7px 12px;
+
+        border-radius: 7px;
+
+        background: #f3f4f6;
+
+        font-size: 12px;
+
+        font-weight: 600;
+
+        transition: .15s;
+
+    }
+
+
+    .table-btn:hover {
+
+        background: #e5e7eb;
+
+    }
+
+
+    .table-btn.edit {
+
+        color: var(--primary);
+
+    }
+
+
+    .table-btn.delete {
+
+        color: var(--danger);
+
+    }
+
+
+    /* =========================
+       EMPTY STATE
+    ========================= */
+
+    .empty {
+
+        text-align: center;
+
+        padding: 60px 20px;
+
+        color: var(--muted);
+
+    }
+
+
+    .empty-icon {
+
+        font-size: 40px;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .empty h3 {
+
+        margin:
+            0 0 5px;
+
+        color: var(--text);
+
+    }
+
+
+    .empty p {
+
+        margin: 0;
+
+    }
+
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal-overlay {
+
+        position: fixed;
+
+        inset: 0;
+
+        background:
+            rgba(0, 0, 0, .5);
+
+        display: none;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 20px;
+
+        z-index: 100;
+
+    }
+
+
+    .modal-overlay.active {
+
+        display: flex;
+
+    }
+
+
+    .modal {
+
+        width: 100%;
+
+        max-width: 450px;
+
+        background: white;
+
+        border-radius: 18px;
+
+        padding: 25px;
+
+        box-shadow:
+            0 25px 60px
+            rgba(0, 0, 0, .2);
+
+    }
+
+
+    .modal-header {
+
+        display: flex;
+
+        justify-content:
+            space-between;
+
+        align-items: center;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    .modal-header h2 {
+
+        margin: 0;
+
+        font-size: 20px;
+
+    }
+
+
+    .close-btn {
+
+        width: 32px;
+
+        height: 32px;
+
+        border-radius: 8px;
+
+        background: #f3f4f6;
+
+        font-size: 18px;
+
+    }
+
+
+    .form-group {
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .form-group label {
+
+        display: block;
+
+        font-size: 13px;
+
+        font-weight: 600;
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .form-group input {
+
+        width: 100%;
+
+        height: 45px;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 9px;
+
+        padding:
+            0 12px;
+
+        font-size: 14px;
+
+        outline: none;
+
+    }
+
+
+    .form-group input:focus {
+
+        border-color:
+            var(--primary);
+
+        box-shadow:
+            0 0 0 3px
+            rgba(144, 22, 22, .08);
+
+    }
+
+
+    .modal-actions {
+
+        display: flex;
+
+        gap: 10px;
+
+        margin-top: 22px;
+
+    }
+
+
+    .modal-actions button {
+
+        flex: 1;
+
+        height: 45px;
+
+        border-radius: 9px;
+
+        font-weight: 600;
+
+    }
+
+
+    .cancel-btn {
+
+        background: #f3f4f6;
+
+    }
+
+
+    .save-btn {
+
+        background:
+            var(--primary);
+
+        color: white;
+
+    }
+
+
+    .save-btn:hover {
+
+        background:
+            var(--primary-dark);
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+        header {
+
+            padding: 18px;
+
+        }
+
+
+        .logo h1 {
+
+            font-size: 18px;
+
+        }
+
+
+        main {
+
+            margin-top: 22px;
+
+            padding:
+                0 14px 35px;
+
+        }
+
+
+        .toolbar {
+
+            flex-direction: column;
+
+        }
+
+
+        .add-btn {
+
+            width: 100%;
+
+        }
+
+
+        .section-header h2 {
+
+            font-size: 17px;
+
+        }
+
+
+        .table-container {
+
+            border-radius: 12px;
+
+        }
+
+
+        .color-table th,
+        .color-table td {
+
+            padding:
+                13px 14px;
+
+        }
+
+
+        .table-actions {
+
+            gap: 5px;
+
+        }
+
+
+        .table-btn {
+
+            padding:
+                7px 10px;
+
+        }
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-inner">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            V
+        </div>
+
+        <div>
+
+            <h1>
+                Vy nails Color Finder
+            </h1>
+
+            <p>
+                Search and manage your colors
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</header>
+
+<main>
+
+
+<div class="toolbar">
+
+    <div class="search-wrapper">
+
+        <span class="search-icon">
+            ⌕
+        </span>
+
+        <input
+            id="search"
+            type="search"
+            placeholder="Search color name..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <button
+        class="add-btn"
+        onclick="openAddModal()"
+    >
+        + Add Color
+    </button>
+
+</div>
+
+
+<!-- TABLE -->
+
+<section>
+
+    <div class="section-header">
+
+        <h2>
+            Color Management
+        </h2>
+
+        <span id="resultCount">
+            0 colors
+        </span>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table class="color-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        #
+                    </th>
+
+                    <th>
+                        Color Name
+                    </th>
+
+                    <th>
+                        Color Code
+                    </th>
+
+                    <th>
+                        Actions
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody
+                id="colorTableBody"
+            >
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =========================
+     ADD / EDIT MODAL
+========================= -->
+
+<div
+    id="modalOverlay"
+    class="modal-overlay"
+>
+
+<div class="modal">
+
+
+    <div class="modal-header">
+
+        <h2 id="modalTitle">
+            Add Color
+        </h2>
+
+
+        <button
+            class="close-btn"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="nameInput">
+            Color Name
+        </label>
+
+
+        <input
+            id="nameInput"
+            type="text"
+            placeholder="e.g. Midnight Blue"
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="codeInput">
+            Color Code
+        </label>
+
+
+        <input
+            id="codeInput"
+            type="text"
+            placeholder="e.g. MB-001"
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <div class="modal-actions">
+
+        <button
+            class="cancel-btn"
+            onclick="closeModal()"
+        >
+            Cancel
+        </button>
+
+
+        <button
+            class="save-btn"
+            onclick="saveColor()"
+        >
+            Save Color
+        </button>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<script>
+
+
+/* =========================
+   CONFIG
+========================= */
+
+const STORAGE_KEY =
+    "color-library-data";
+
+
+/* =========================
+   STATE
+========================= */
+
+let colors = [];
+
+let editingId = null;
+
+
+/* =========================
+   LOAD DATA
+========================= */
+
+async function loadColors() {
+
+
+    /*
+     * First try localStorage.
+     *
+     * This allows Add/Edit/Delete
+     * changes to remain after reload.
+     */
+
+    const saved =
+        localStorage.getItem(
+            STORAGE_KEY
+        );
+
+
+    if (saved) {
+
+        try {
+
+            colors =
+                JSON.parse(saved);
+
+            render();
+
+            return;
+
+        } catch (error) {
+
+            console.error(
+                "Invalid localStorage data:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /*
+     * If there is no localStorage data,
+     * load the initial data from colors.json.
+     */
+
+    try {
+
+        const response =
+            await fetch(
+                "colors.json"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load colors.json"
+            );
+
+        }
+
+
+        colors =
+            await response.json();
+
+
+        saveToLocalStorage();
+
+        render();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        colors = [];
+
+        render();
+
+    }
+
+}
+
+
+/* =========================
+   LOCAL STORAGE
+========================= */
+
+function saveToLocalStorage() {
+
+    localStorage.setItem(
+
+        STORAGE_KEY,
+
+        JSON.stringify(colors)
+
+    );
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function getFilteredColors() {
+
+
+    const search =
+
+        document
+            .getElementById("search")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    /*
+     * Full text search:
+     *
+     * "blue"
+     * will match:
+     *
+     * Midnight Blue
+     * Ocean Blue
+     * Blue Gray
+     */
+
+    return colors.filter(
+        color =>
+            color.name
+                .toLowerCase()
+                .includes(search)
+    );
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
+function render() {
+
+
+    const filtered =
+        getFilteredColors();
+
+
+    renderTable(
+        filtered
+    );
+
+
+    document
+        .getElementById(
+            "resultCount"
+        )
+        .textContent =
+
+        `${filtered.length} ${
+            filtered.length === 1
+                ? "color"
+                : "colors"
+        }`;
+
+}
+
+
+/* =========================
+   RENDER TABLE
+========================= */
+
+function renderTable(
+    data
+) {
+
+
+    const tbody =
+
+        document
+            .getElementById(
+                "colorTableBody"
+            );
+
+
+    if (data.length === 0) {
+
+        tbody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="4"
+                    class="empty"
+                >
+
+                    <div class="empty-icon">
+                        🎨
+                    </div>
+
+                    <h3>
+                        No colors found
+                    </h3>
+
+                    <p>
+                        Try another search
+                        or add a new color.
+                    </p>
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    tbody.innerHTML =
+
+        data
+            .map(
+                (color, index) => `
+
+                    <tr>
+
+                        <td class="table-number">
+                            ${index + 1}
+                        </td>
+
+
+                        <td class="table-name">
+                            ${escapeHtml(
+                                color.name
+                            )}
+                        </td>
+
+
+                        <td class="table-code">
+                            ${escapeHtml(
+                                color.code
+                            )}
+                        </td>
+
+
+                        <td>
+
+                            <div
+                                class="table-actions"
+                            >
+
+                                <button
+                                    class="
+                                        table-btn
+                                        edit
+                                    "
+                                    onclick="
+                                        editColor(
+                                            ${color.id}
+                                        )
+                                    "
+                                >
+                                    Edit
+                                </button>
+
+
+                                <button
+                                    class="
+                                        table-btn
+                                        delete
+                                    "
+                                    onclick="
+                                        deleteColor(
+                                            ${color.id}
+                                        )
+                                    "
+                                >
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                `
+            )
+            .join("");
+
+}
+
+
+/* =========================
+   OPEN ADD MODAL
+========================= */
+
+function openAddModal() {
+
+
+    editingId = null;
+
+
+    document
+        .getElementById(
+            "modalTitle"
+        )
+        .textContent =
+            "Add Color";
+
+
+    document
+        .getElementById(
+            "nameInput"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "codeInput"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "modalOverlay"
+        )
+        .classList
+        .add("active");
+
+
+    setTimeout(
+        () => {
+
+            document
+                .getElementById(
+                    "nameInput"
+                )
+                .focus();
+
+        },
+        100
+    );
+
+}
+
+
+/* =========================
+   EDIT COLOR
+========================= */
+
+function editColor(
+    id
+) {
+
+
+    const color =
+
+        colors.find(
+            c =>
+                c.id === id
+        );
+
+
+    if (!color) {
+
+        return;
+
+    }
+
+
+    editingId = id;
+
+
+    document
+        .getElementById(
+            "modalTitle"
+        )
+        .textContent =
+            "Edit Color";
+
+
+    document
+        .getElementById(
+            "nameInput"
+        )
+        .value =
+            color.name;
+
+
+    document
+        .getElementById(
+            "codeInput"
+        )
+        .value =
+            color.code;
+
+
+    document
+        .getElementById(
+            "modalOverlay"
+        )
+        .classList
+        .add("active");
+
+}
+
+
+/* =========================
+   SAVE COLOR
+========================= */
+
+function saveColor() {
+
+
+    const name =
+
+        document
+            .getElementById(
+                "nameInput"
+            )
+            .value
+            .trim();
+
+
+    const code =
+
+        document
+            .getElementById(
+                "codeInput"
+            )
+            .value
+            .trim();
+
+
+    /*
+     * Validate name
+     */
+
+    if (!name) {
+
+        alert(
+            "Please enter a color name."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Validate code
+     */
+
+    if (!code) {
+
+        alert(
+            "Please enter a color code."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * EDIT EXISTING COLOR
+     */
+
+    if (editingId !== null) {
+
+
+        const index =
+
+            colors.findIndex(
+                c =>
+                    c.id ===
+                    editingId
+            );
+
+
+        if (index !== -1) {
+
+
+            colors[index] = {
+
+                ...colors[index],
+
+                name: name,
+
+                code: code
+
+            };
+
+        }
+
+    }
+
+
+    /*
+     * ADD NEW COLOR
+     */
+
+    else {
+
+
+        colors.push({
+
+            id: Date.now(),
+
+            name: name,
+
+            code: code
+
+        });
+
+    }
+
+
+    /*
+     * Save
+     */
+
+    saveToLocalStorage();
+
+
+    /*
+     * Update table
+     */
+
+    render();
+
+
+    /*
+     * Close modal
+     */
+
+    closeModal();
+
+}
+
+
+/* =========================
+   DELETE COLOR
+========================= */
+
+function deleteColor(
+    id
+) {
+
+
+    const color =
+
+        colors.find(
+            c =>
+                c.id === id
+        );
+
+
+    if (!color) {
+
+        return;
+
+    }
+
+
+    const confirmed =
+
+        confirm(
+            `Delete "${color.name}"?`
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    colors =
+
+        colors.filter(
+            c =>
+                c.id !== id
+        );
+
+
+    saveToLocalStorage();
+
+
+    render();
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal() {
+
+
+    document
+        .getElementById(
+            "modalOverlay"
+        )
+        .classList
+        .remove("active");
+
+}
+
+
+document
+    .getElementById(
+        "modalOverlay"
+    )
+    .addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target.id ===
+                "modalOverlay"
+            ) {
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   SEARCH EVENT
+========================= */
+
+document
+    .getElementById(
+        "search"
+    )
+    .addEventListener(
+        "input",
+        render
+    );
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   HTML ESCAPE
+========================= */
+
+function escapeHtml(
+    value
+) {
+
+    return String(value)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
+
+
+/* =========================
+   START APPLICATION
+========================= */
+
+loadColors();
+
+</script>
+
+</body>
+
+</html>
